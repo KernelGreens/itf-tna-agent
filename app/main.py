@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from app.routes.analyze import router as analyze_router
 
-app = FastAPI(title="Agentic TNA Automation")
+app = FastAPI(title="Agentic ITF_TNA Automation")
 
 #routes
 app.include_router(analyze_router, prefix="/api/analyze")
