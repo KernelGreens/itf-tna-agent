@@ -2,6 +2,8 @@ from crewai import Agent, Task, Crew
 from langchain.chat_models import ChatOpenAI
 import pandas as pd
 from app.services.gdrive_service import fetch_sheet_data
+from dotenv import load_dotenv
+load_dotenv()
 
 llm = ChatOpenAI(model="gpt-4", temperature=0.3)
 
