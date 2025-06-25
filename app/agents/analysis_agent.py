@@ -35,5 +35,5 @@ def run_analysis(sheet_link):
                 """
                 )
     crew = Crew(agents=[analyst], tasks=[task])
-    results = crew.run()
+    results = crew.kickoff()
     return results
