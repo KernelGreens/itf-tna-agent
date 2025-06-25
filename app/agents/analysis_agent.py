@@ -14,7 +14,7 @@ def run_analysis(sheet_link):
     frequency of common issues, areas with lowest scores,Trends across departments and recommended training actions.
     """
 
-    analyst = Agent(name="Training Analyst", goal="Identify training gaps", backstory="You specialize in HR analytics.")
+    analyst = Agent(name="Training Analyst", role="HR Analyst", goal="Identify training gaps", backstory="You specialize in HR analytics.")
     task = Task(description=prompt, agent=analyst)
     crew = Crew(agents=[analyst], tasks=[task])
     results = crew.run()
