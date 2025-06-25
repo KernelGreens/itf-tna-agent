@@ -1,6 +1,9 @@
 from crewai import Agent, Task, Crew
+from langchain.chat_models import ChatOpenAI
 import pandas as pd
 from app.services.gdrive_service import fetch_sheet_data
+
+llm = ChatOpenAI(model="gpt-4", temperature=0.3)
 
 def run_analysis(sheet_link):
     df_hr, df_sup, df_staff = fetch_sheet_data(sheet_link)
@@ -34,6 +37,6 @@ def run_analysis(sheet_link):
                 The report should be structured in numbered sections with clear headers.
                 """
                 )
-    crew = Crew(agents=[analyst], tasks=[task])
+    crew = Crew(agents=[analyst], tasks=[task], llm=llm)
     results = crew.kickoff()
     return results
